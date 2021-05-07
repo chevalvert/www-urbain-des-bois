@@ -1,0 +1,54 @@
+.text4 {
+  position: relative;
+  color: $white;
+  padding: ($gutter * 2) 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.5;
+  }
+
+  &__content {
+    @include max-width;
+    position: relative;
+    z-index: 1;
+  }
+
+  svg {
+    width: 3em;
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1em;
+
+    strong {
+      text-transform: uppercase;
+    }
+  }
+
+  &__text {
+    column-count: 2;
+
+    @include mobile {
+      column-count: 1;
+    }
+  }
+
+  img {
+    margin-top: 1em;
+    width: 15rem;
+
+    @include mobile {
+      float: right;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+body {
+  @include regular;
+
+  scroll-behavior: smooth;
+
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  font-size: 1.8rem;
+  line-height: 1.4;
+
+  @include mobile {
+    font-size: 2.0rem;
+  }
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: bottom; /* Suppress the space beneath the baseline */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p a {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include regular;
+  line-height: 1.25;
+}
+
+strong {
+  @include bold;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+sup {
+  font-size: smaller;
+  vertical-align: top;
+}
+
+blockquote {
+  @include bold;
+  position: relative;
+  box-sizing: border-box;
+  padding: 1em 2.5em;
+  font-size: 2.8rem;
+  color: $white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: $gutter * 0.5;
+
+  &::before, &::after {
+    @include regular;
+    font-size: 15rem;
+    position: absolute;
+    line-height: 0;
+  }
+
+  &::before {
+    content: '«';
+    top: 2.8rem * 1.4;
+    left: -0.1em;
+  }
+
+  &::after {
+    content: '»';
+    bottom: 2.8rem * 1.4 * 2;
+    right: -0.1em;
+  }
+}

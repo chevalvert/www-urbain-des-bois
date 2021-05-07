@@ -1,0 +1,39 @@
+@mixin debug ($color: red) {
+  outline: 1px solid $color;
+}
+
+@mixin easing ($duration: 100ms, $property: all) {
+  transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@mixin reset-button {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+
+  background: transparent;
+  border: none;
+
+  appearance: none;
+
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  &:focus { outline: none; }
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  user-select: none;
+}

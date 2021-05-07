@@ -1,0 +1,98 @@
+.news {
+  @include max-width;
+  padding: $gutter;
+
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: $gutter;
+    text-transform: uppercase;
+    color: $green;
+
+    @include mobile {
+      strong {
+        display: block;
+      }
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-gap: $gutter * 0.5;
+    gap: $gutter * 0.5;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    @include mobile {
+      margin-bottom: $gutter;
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+
+    figure {
+      position: relative;
+      padding-bottom: 62.5%;
+      overflow: hidden;
+      margin-bottom: 0.5em;
+
+      img {
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    figure &-category {
+      @include bold;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-size: 1.2rem;
+      padding: 0.5em 0.75em;
+      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.8);
+      color: $white;
+    }
+
+    &-date {
+      color: $gray;
+      font-size: smaller;
+      margin-bottom: 0.5em;
+    }
+
+    &-excerpt {
+      @include bold;
+    }
+  }
+
+  button#newsDisplayMore {
+    @include reset-button;
+    @include bold;
+    display: block;
+    margin: $gutter auto;
+    cursor: pointer;
+    background: $green;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 1em;
+    color: $white;
+
+    @include mobile {
+      font-size: inherit;
+    }
+  }
+}

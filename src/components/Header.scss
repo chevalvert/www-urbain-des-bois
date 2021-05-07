@@ -1,0 +1,89 @@
+.header {
+  box-sizing: content-box;
+  position: relative;
+  height: 85rem;
+
+  @include mobile {
+    height: auto;
+  }
+
+  &::after {
+    content: '';
+    pointer-events: none;
+    background-image: url('assets/images/trame-tiret.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -10rem;
+    right: 0;
+  }
+
+  .header__covers {
+    position: relative;
+    height: 100%;
+
+    @include mobile {
+      height: 50rem;
+    }
+  }
+
+  .header__cover {
+    @include easing(1200ms, opacity);
+    position: absolute;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &.is-hidden {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+    position: absolute;
+    max-width: 35ch;
+    padding: $gutter;
+    padding-right: $gutter * 2;
+    bottom: 0;
+    right: $gutter;
+
+    background: $green;
+    color: $white;
+    font-size: 1.6rem;
+    border-radius: 1rem 1rem 0 0;
+
+    @include mobile {
+      position: relative;
+      font-size: inherit;
+      max-width: 100%;
+      border-radius: 0;
+      right: unset;
+      bottom: unset;
+    }
+  }
+
+  &__header {}
+
+  &__header h1,
+  &__header h2 {
+    text-transform: uppercase;
+  }
+
+  &__header h2 {
+    font-size: 1.6rem;
+  }
+
+  &__header h1 {
+    font-size: 3.5rem;
+    line-height: 1.25;
+    margin-bottom: 1em;
+  }
+}

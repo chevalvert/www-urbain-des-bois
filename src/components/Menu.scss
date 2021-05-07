@@ -1,0 +1,169 @@
+.menu {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: $gutter;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0);
+
+  #toggleMenuVisibility {
+    display: none;
+  }
+
+  &__logo--icade  svg {
+    @include mobile {
+      height: 5rem;
+    }
+  }
+
+  &__logo--urbain {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    svg {
+      @include mobile {
+        height: 5rem;
+      }
+    }
+  }
+
+  &.is-sticky {
+    @include easing(300ms, background);
+    background: $white;
+    height: $gutter * 2;
+    padding: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    .menu__logo--icade {
+      margin-top: $gutter / 2;
+      margin-left: $gutter * 4;
+      svg {
+        height: $gutter;
+        width: auto;
+      }
+    }
+    .menu__logo--urbain {
+      height: $gutter;
+      left: $gutter;
+      top: $gutter / 2;
+      transform: none;
+
+      svg {
+        height: $gutter;
+        width: auto;
+      }
+
+      svg * {
+        fill: $black;
+      }
+    }
+    label[for='toggleMenuVisibility'] {
+      position: absolute;
+      right: $gutter / 2;
+      top: 50%;
+      background: none;
+      box-shadow: none;
+      transform: translateY(-50%);
+    }
+  }
+
+  label[for='toggleMenuVisibility'] {
+    @include no-select;
+    z-index: 2;
+    cursor: pointer;
+    background: $white;
+    color: $green;
+    text-transform: uppercase;
+    align-self: flex-start;
+    padding: 0.75em 1em;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    @include mobile {
+      span {
+        display: none;
+      }
+    }
+
+    &::after {
+      display: inline-block;
+      content: '\2630';
+      margin-left: 1ch;
+
+      @include mobile {
+        margin-left: 0;
+      }
+    }
+  }
+
+  #toggleMenuVisibility:checked ~ label[for='toggleMenuVisibility'] {
+    background: $green;
+    color: $white;
+    box-shadow: none;
+  }
+
+  &__overlay {
+    @include easing(300ms, opacity);
+    pointer-events: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+
+    #toggleMenuVisibility:checked ~ & {
+      opacity: 1;
+    }
+  }
+
+  &__navigation {
+    @include easing(300ms, opacity);
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: $white;
+    padding: ($gutter * 4) ($gutter * 2) ($gutter);
+    border-radius: 0 0 0 1rem;
+    width: 30ch;
+    pointer-events: none;
+    opacity: 0;
+
+    @include mobile {
+      padding: ($gutter * 3) $gutter $gutter $gutter;
+      left: 0;
+      width: unset;
+    }
+
+    #toggleMenuVisibility:checked ~ & {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+
+  &__link, &__anchor {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+
+  &__links {
+    @include bold;
+    color: $green;
+    margin-top: $gutter;
+
+    &::before {
+      content: '';
+      display: block;
+      border-top: 1px solid $black;
+      height: 1px;
+      width: $gutter * 2;
+      margin-bottom: $gutter;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.footer {
+  position: relative;
+  background: $green;
+  color: $white;
+
+  padding: $gutter 0;
+
+  #scrollTop {
+    position: absolute;
+    background: $white;
+
+    left: 50%;
+    top: -2rem;
+
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    text-align: center;
+    border: 5px solid $white;
+    transform: translateX(-50%) rotate(-90deg);
+
+    font-size: 1.8rem;
+
+    svg {
+      height: 2rem;
+      width: auto;
+      * { stroke: $green; }
+    }
+  }
+
+  h2 {
+    @include max-width;
+    text-align: center;
+
+    @include mobile {
+      strong {
+        display: block;
+      }
+    }
+  }
+
+  &__social {
+    @include no-select;
+    @include max-width;
+
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: ($gutter / 2) auto;
+
+    @include mobile {
+      font-size: 2.0rem;
+      margin: $gutter auto;
+    }
+
+    a + a {
+      margin-left: 1em;
+    }
+  }
+
+  &__links {
+    @include max-width;
+
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li + li {
+      margin-left: 1em;
+
+      @include mobile {
+        margin-top: 0.25em;
+        margin-left: 0;
+      }
+    }
+  }
+}

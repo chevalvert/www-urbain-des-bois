@@ -1,0 +1,90 @@
+.team {
+  @include max-width;
+  margin: ($gutter * 2) auto;
+
+  @include mobile {
+    margin-top: 0;
+    padding-top: $gutter;
+    background: $blue;
+  }
+
+  h2, h3 {
+    color: $green;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include mobile {
+      color: $black;
+    }
+  }
+
+  h3 {
+    font-size: 2.2rem;
+    color: $gray;
+  }
+
+  &__members {
+    margin: $gutter 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3rem;
+    gap: 3rem;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__member {
+    text-align: center;
+    font-size: 1.6rem;
+    width: 100%;
+
+    figure {
+      width: 100%;
+      border-radius: 100%;
+
+      img {}
+    }
+
+    &-name {
+      @include bold;
+      margin-top: 1em;
+    }
+  }
+
+  &__text {
+    display: flex;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      padding-bottom: $gutter;
+
+      figure {
+        margin-bottom: $gutter;
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    div {
+      max-width: 40ch;
+      margin-right: $gutter;
+
+      @include mobile  {
+        max-width: 100%;
+        margin-right: 0;
+      }
+    }
+
+    p + p {
+      margin-top: 1em;
+    }
+  }
+}

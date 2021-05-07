@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+@import 'sass/reset';
+@import 'sass/helpers';
+
+$white: #FFFFFF;
+$black: #434343;
+$green: #568E2F;
+$lightgreen: #94bc6a;
+$gray: #717171;
+$brown: #C2905E;
+$red: #BA6739;
+$blue: #9FDBEE;
+
+$gutter: 4rem;
+
+@mixin regular { font-weight: 300; }
+@mixin bold { font-weight: 400; }
+@mixin max-width {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+
+@import 'sass/base';
+
+@import 'components/Contact';
+@import 'components/Footer';
+@import 'components/Header';
+@import 'components/Menu';
+@import 'components/News';
+@import 'components/Slideshow';
+@import 'components/Team';
+@import 'components/Text1';
+@import 'components/Text2';
+@import 'components/Text3';
+@import 'components/Text4';

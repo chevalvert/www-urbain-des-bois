@@ -1,0 +1,77 @@
+.text2 {
+  @include max-width;
+  display: flex;
+  margin: $gutter * 2 auto;
+
+  @include mobile {
+    display: block;
+  }
+
+  &__left {
+    max-width: 30ch;
+    @include mobile {
+      max-width: unset;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    margin-left: $gutter * 2;
+
+    @include mobile {
+      margin-left: 0;
+      width: unset;
+    }
+  }
+
+  svg {
+    width: 22ch;
+    margin: $gutter 0;
+    @include mobile {
+      display: block;
+      max-width: 100%;
+      margin: $gutter auto;
+    }
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    color: $green;
+
+    strong {
+      display: block;
+    }
+  }
+
+  h3 {
+    @include bold;
+    margin: 1em 0;
+  }
+
+  blockquote {
+    color: $white;
+    background: $lightgreen;
+    margin-left: -$gutter;
+    margin-right: $gutter;
+
+    @include mobile {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  figure {
+    margin-top: -$gutter;
+    margin-right: -$gutter;
+    margin-bottom: $gutter;
+
+    @include mobile {
+      margin-left: -$gutter;
+    }
+  }
+
+  footer {
+    max-width: 30ch;
+  }
+}

@@ -1,0 +1,139 @@
+.slideshow {
+  @include max-width;
+
+  h2 {
+    @include bold;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    color: $red;
+  }
+
+  &__slides {
+    position: relative;
+  }
+
+  &__slide {
+    @include easing(120ms, opacity);
+
+    &__image {
+      position: relative;
+    }
+
+    &.is-hidden {
+      @include no-select;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    h3 {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      color: $red;
+    }
+
+    figure {
+      position: relative;
+      margin: $gutter (-$gutter);
+    }
+
+    figcaption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: white;
+      padding: ($gutter / 2) $gutter $gutter $gutter;
+      max-width: 30%;
+      border-radius: 0 0 1rem 0;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+      font-size: 1.6rem;
+
+      @include mobile {
+        position: relative;
+        max-width: 100%;
+        box-shadow: none;
+        font-size: 1.8rem;
+      }
+    }
+
+    h4 {
+      @include bold;
+      font-size: 2.0rem;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+
+      @include mobile {
+        font-size: 2.4rem;
+      }
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 2ch;
+    }
+
+    li {
+      margin-top: 0.5em;
+    }
+  }
+
+  &__slide &__navigation {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: $white;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include mobile {
+      // bottom: unset;
+    }
+
+    button {
+      @include reset-button;
+      width: 3rem;
+      height: 3rem;
+      padding: 0.5rem;
+      cursor: pointer;
+
+      &:first-of-type {
+        transform: scale(-1, 1);
+      }
+
+      svg {
+        margin-bottom: 0.5rem;
+        width: auto;
+        height: 50%;
+      }
+    }
+
+    &--bullets {
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+
+    &--bullets li {
+      position: relative;
+      margin: 0 1.5rem;
+
+      &:not(.is-active) {
+        opacity: 0.3;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        border-radius: 100%;
+        background: $white;
+        width: 0.8rem;
+        height: 0.8rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
