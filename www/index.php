@@ -121,7 +121,7 @@
           ],
           [
             'title' => 'XXX',
-            'image' => 'assets/images/matiere-bois-carbone.png',
+            'image' => 'assets/images/slideshow-2.jpg',
             'subtitle' => 'XXX',
             'text' => <<<HTML
               <ul>
