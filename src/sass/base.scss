@@ -76,11 +76,19 @@ blockquote {
   overflow: hidden;
   margin-bottom: $gutter * 0.5;
 
+  @include mobile {
+    font-size: 2.4rem;
+  }
+
   &::before, &::after {
     @include regular;
     font-size: 15rem;
     position: absolute;
     line-height: 0;
+
+    @include mobile {
+      font-size: 8rem;
+    }
   }
 
   &::before {

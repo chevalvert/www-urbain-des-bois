@@ -15,7 +15,8 @@
 
   &__logo--icade  svg {
     @include mobile {
-      height: 5rem;
+      height: $gutter;
+      width: auto;
     }
   }
 
@@ -26,7 +27,7 @@
 
     svg {
       @include mobile {
-        height: 5rem;
+        height: $gutter;
       }
     }
   }
@@ -40,7 +41,7 @@
 
     .menu__logo--icade {
       margin-top: $gutter / 2;
-      margin-left: $gutter * 4;
+      margin-left: $gutter;
       svg {
         height: $gutter;
         width: auto;
@@ -48,9 +49,7 @@
     }
     .menu__logo--urbain {
       height: $gutter;
-      left: $gutter;
       top: $gutter / 2;
-      transform: none;
 
       svg {
         height: $gutter;
