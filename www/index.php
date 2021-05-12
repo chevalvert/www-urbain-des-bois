@@ -236,7 +236,7 @@
         'title' => 'Contactez-nous',
         'phone' => '04 11 11 12 75',
         'action' => 'send-email.php',
-        'agreement' => '* En cochant cette case, j’accepte que ces informations soient exploitées par Icade pour me recontacter, conformément à sa politique de données personnelles.'
+        'agreement' => 'Icade traite vos données personnelles pour répondre à votre demande.'
       ]);
 
       snippet('components/Footer', [

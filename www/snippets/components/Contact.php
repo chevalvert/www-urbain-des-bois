@@ -40,8 +40,7 @@
 
     <fieldset>
       <div class='checkbox-container'>
-        <input type='checkbox' name='agree' id='checkboxAgree' required />
-        <label name='agree' for='checkboxAgree' required><?= $agreement ?></label>
+        <?= $agreement ?>
       </div>
       <button type='submit'>Envoyer <?php snippet('svg/arrow-right') ?></button>
     </fieldset>
