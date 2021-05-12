@@ -28,6 +28,10 @@ body {
   @include mobile {
     font-size: 2.0rem;
   }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 img, svg {

@@ -113,7 +113,7 @@
     background: rgba(0, 0, 0, 0.7);
     top: 0;
     left: 0;
-    bottom: 0;
+    bottom: -200px;
     right: 0;
     opacity: 0;
 
@@ -124,15 +124,20 @@
 
   &__navigation {
     @include easing(300ms, opacity);
+    @include invisible-scroll(y);
+    box-sizing: border-box;
     position: absolute;
     right: 0;
     top: 0;
     background: $white;
     padding: ($gutter * 4) ($gutter * 2) ($gutter);
     border-radius: 0 0 0 1rem;
-    width: 30ch;
+    width: 40ch;
     pointer-events: none;
     opacity: 0;
+
+    overflow-y: scroll;
+    max-height: 100vh;
 
     @include mobile {
       padding: ($gutter * 3) $gutter $gutter $gutter;
