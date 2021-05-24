@@ -16,22 +16,37 @@
   }
 
   &__items {
-    display: grid;
-    grid-gap: $gutter * 0.5;
-    gap: $gutter * 0.5;
-    grid-template-columns: repeat(3, 1fr);
-
-    @include mobile {
-      grid-template-columns: 1fr;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @supports (display: grid) {
+      display: grid;
+      grid-gap: $gutter * 0.5;
+      gap: $gutter * 0.5;
+      grid-template-columns: repeat(3, 1fr);
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
     }
+
   }
 
   &__item {
     position: relative;
 
+    // ie fix
+    width: calc(33% - #{$gutter} * .25);
+    margin-bottom: $gutter * 0.5;
+    // all browsers than ie11
+    @supports(display: grid) {
+      width: auto;
+      flex: 0 1 auto;
+      margin-bottom: 0;
+    }
+
     @include mobile {
       margin-bottom: $gutter;
+      width: auto;
     }
 
     &.is-hidden {
@@ -78,6 +93,17 @@
       @include bold;
     }
   }
+  &__item-ghost {
+    visibility: hidden;
+  }
+  
+  // ie fix
+  @supports (display: grid) {
+    &__item-ghost {
+     display: none;
+    }
+  }
+
 
   button#newsDisplayMore {
     @include reset-button;

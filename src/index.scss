@@ -14,8 +14,19 @@ $blue: #9FDBEE;
 
 $gutter: 4rem;
 
+@mixin target-ie10-11 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
 @mixin regular { font-weight: 300; }
-@mixin bold { font-weight: 400; }
+@mixin bold { 
+  font-weight: 400;
+  // ie 11
+  @include target-ie10-11 {
+    font-weight: 600;
+  }
+ }
 @mixin max-width {
   max-width: 1024px;
   margin: 0 auto;

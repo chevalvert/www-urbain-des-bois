@@ -36,10 +36,12 @@ body {
 
 img, svg {
   max-width: 100%;
-  height: auto;
   border: 0;
   -ms-interpolation-mode: bicubic;
   vertical-align: bottom; /* Suppress the space beneath the baseline */
+}
+img {
+  height: auto;
 }
 
 a {

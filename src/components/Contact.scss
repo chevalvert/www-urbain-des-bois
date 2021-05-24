@@ -81,6 +81,9 @@
       @include reset-button;
       box-sizing: border-box;
       background: #EFEFEFEF;
+      @include target-ie10-11 {
+        background-color: rgba(239, 239, 239, 0.937);
+      }
       width: 100%;
       padding: 1.2rem;
     }

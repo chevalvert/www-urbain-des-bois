@@ -7,10 +7,18 @@
   padding: $gutter;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   background: rgba(0, 0, 0, 0);
 
   #toggleMenuVisibility {
     display: none;
+  }
+
+  .menu__logo--icade {
+    order: -1;
+  }
+  .menu__logo--urbain {
+    order: 1;
   }
 
   &__logo--icade  svg {
@@ -82,6 +90,7 @@
     border-radius: 0.5rem;
     font-size: 1.6rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    order: 10;
 
     @include mobile {
       span {
