@@ -13,6 +13,14 @@
         </a>
       </li>
     <?php endforeach ?>
+    <?php 
+    // add ghost items for ie 11
+    $count_items = count($items);
+    $count_more_items = 3 - $count_items % 3;
+    for($i = 0 ; $i < $count_more_items ; $i++) : ?>
+      <li class='news__item news__item-ghost'>
+      </li>
+    <?php endfor; ?>
   </ul>
   <button id='newsDisplayMore'>Voir toutes les publications</button>
 </section>

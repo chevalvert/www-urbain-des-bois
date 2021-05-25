@@ -52,7 +52,7 @@
       margin-left: $gutter;
       svg {
         height: $gutter;
-        width: auto;
+        // width: auto;
       }
     }
     .menu__logo--urbain {
@@ -151,7 +151,7 @@
     @include mobile {
       padding: ($gutter * 3) $gutter $gutter $gutter;
       left: 0;
-      width: unset;
+      width: auto;
     }
 
     #toggleMenuVisibility:checked ~ & {

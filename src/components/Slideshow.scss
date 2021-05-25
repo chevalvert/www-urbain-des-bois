@@ -1,5 +1,6 @@
 .slideshow {
   @include max-width;
+  overflow: hidden;
 
   h2 {
     @include bold;
