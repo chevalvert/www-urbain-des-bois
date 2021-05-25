@@ -69,7 +69,7 @@
 
     @include mobile {
       padding: 0;
-      max-width: unset;
+      max-width: none;
     }
 
     h2 {

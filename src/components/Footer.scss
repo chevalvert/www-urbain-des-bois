@@ -14,6 +14,11 @@
 
     width: 3rem;
     height: 3rem;
+    // ie 11
+    @include target-ie10-11 {
+      width: 4rem;
+      height: 4rem;
+    }
     border-radius: 100%;
     text-align: center;
     border: 5px solid $white;

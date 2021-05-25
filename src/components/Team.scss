@@ -26,24 +26,41 @@
 
   &__members {
     margin: $gutter 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 3rem;
-    gap: 3rem;
-
-    @include mobile {
-      grid-template-columns: repeat(2, 1fr);
+    // ie fix
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // all browsers than ie11
+    @supports(display: grid) {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 3rem;
+      gap: 3rem;
+      @include mobile {
+          grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 
   &__member {
     text-align: center;
     font-size: 1.6rem;
-    width: 100%;
+    max-width: 172px;
+    // all browsers than ie11
+    @supports(display: grid) {
+      width: 100%;
+      max-width: none;
+    }
 
     figure {
-      width: 100%;
       border-radius: 100%;
+      max-width: 172px;
+      // all browsers than ie11
+      @supports(display: grid) {
+        width: 100%;
+        max-width: none;
+      }
+  
 
       img {}
     }
@@ -56,6 +73,14 @@
 
   &__text {
     display: flex;
+    @include target-ie10-11 {
+      figure {
+        flex: 1; 
+        img {
+          max-width: 100%;
+        }
+      }
+    }
 
     @include mobile {
       flex-direction: column-reverse;
@@ -65,6 +90,8 @@
         margin-bottom: $gutter;
         margin-left: -$gutter;
         margin-right: -$gutter;
+        
+        flex-basis: auto; 
 
         img {
           width: 100%;
@@ -76,6 +103,10 @@
     div {
       max-width: 40ch;
       margin-right: $gutter;
+      @include target-ie10-11 {
+        flex: 0 0 400px; 
+        max-width: none;
+      }
 
       @include mobile  {
         max-width: 100%;
@@ -88,3 +119,9 @@
     }
   }
 }
+
+// _:-ms-fullscreen, :root .team__text figure { 
+//   @include mobile  {
+//     margin-bottom: -$gutter;
+//   }
+// }

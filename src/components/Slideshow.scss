@@ -1,5 +1,6 @@
 .slideshow {
   @include max-width;
+  overflow: hidden;
 
   h2 {
     @include bold;
@@ -102,6 +103,10 @@
         margin-bottom: 0.5rem;
         width: auto;
         height: 50%;
+        @include target-ie10-11 {
+          position: relative;
+          top: -5px;
+        }
       }
     }
 

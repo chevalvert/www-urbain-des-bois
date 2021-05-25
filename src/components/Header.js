@@ -13,7 +13,13 @@ export default () => {
     if (index > covers.length - 1) index = 0
 
     for (let i = 0; i < covers.length; i++) {
-      covers[i].classList.toggle('is-hidden', i !== index)
+      // /!\ toggle second argument doesn't work on ie11
+      // covers[i].classList.toggle('is-hidden', i !== index)
+      if(i !== index) {
+        covers[i].classList.add('is-hidden');
+      } else {
+        covers[i].classList.remove('is-hidden');
+      }
     }
   }
 }
